@@ -16,9 +16,10 @@ const InputError = require('../exceptions/InputError');
         },
     })
 
-    server.route(routes);
     const model = await loadModel();
     server.app.model = model;
+    
+    server.route(routes);
 
     server.ext('onPreResponse', function (request, h){
         const response = request.response;
